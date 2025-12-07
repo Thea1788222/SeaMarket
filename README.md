@@ -71,29 +71,42 @@ SeaMarket 是一个面向校园/小型社区的在线二手交易平台，支持
 ```text
 SeaMarket/
 │
-├── src/main/java/
-│   ├── db/                # 底层数据库封装（ConnectionManager, DbExecutor, TransactionManager）
-│   ├── dao/               # DAO 接口
-│   ├── dao/impl/          # DAO 实现类
-│   ├── model/             # 实体类（User, Item, Order...）
-│   ├── service/           # 业务逻辑层
-│   ├── controller/               # 控制器（Servlet / Controller）
-│   └── util/              # 工具类（密码、校验）
-│
-├── src/main/resources/
-│   ├── db.properties      # 数据库连接配置（不提交真实账号密码）
-│   └── schema.sql         # 数据库建表脚本
-│
-├── webapp/
-│   ├── index.jsp
-│   ├── item/              # 商品列表、详情、发布
-│   └── user/              # 登录、注册
-│
-├── uploads/               # 商品图片上传目录
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/example/seamarket/
+│       │       ├── db/             # 底层数据库封装（ConnectionManager, DbExecutor, TransactionManager）
+│       │       ├── dao/            # DAO 接口
+│       │       ├── dao/impl/       # DAO 实现类
+│       │       ├── model/          # 实体类（User, Item, Order...）
+│       │       ├── service/        # 业务逻辑层
+│       │       ├── controller/     # 控制器（Servlet / Controller）
+│       │       └── util/           # 工具类（密码加密、校验等）
+│       │
+│       ├── resources/
+│       │   ├── db.properties       # 数据库连接配置（不提交真实账号密码）
+│       │   └── schema.sql          # 数据库建表脚本
+│       │
+│       └── webapp/
+│           ├── index.jsp           # 欢迎首页
+│           ├── user/
+│           │   ├── register.jsp    # 用户注册页
+│           │   ├── login.jsp       # 用户登录页
+│           │   ├── favorites.jsp   # 我的收藏页
+│           │   └── orders.jsp      # 我的订单页
+│           │
+│           ├── item/
+│           │   ├── list.jsp        # 商品列表页
+│           │   ├── detail.jsp      # 商品详情页
+│           │   └── publish.jsp     # 发布商品页
+│           │
+│           └── WEB-INF/
+│               └── web.xml         # web 应用配置
 │
 ├── .gitignore
 ├── README.md
 └── pom.xml / build.gradle
+
 ```
 
 ---
