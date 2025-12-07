@@ -65,7 +65,7 @@ public class ItemController extends HttpServlet {
         Item item = new Item();
         item.setSellerId(seller.getId());
         item.setTitle(title);
-        item.setDescription(description);
+        item.setDescription(description.replace("\n", "<br/>"));
         item.setPrice(new BigDecimal(priceStr));
 
         int rows = itemService.publishItem(item);
@@ -89,6 +89,12 @@ public class ItemController extends HttpServlet {
             items = itemService.searchItems("");
         } else {
             items = itemService.searchItems(keyword.trim());
+        }
+
+        for (Item item : items) {
+            if (item.getDescription() != null) {
+                item.setDescription(item.getDescription().replace("\n", "<br/>"));
+            }
         }
 
         req.setAttribute("items", items);

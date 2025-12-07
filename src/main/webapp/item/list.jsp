@@ -1,12 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Thea
-  Date: 2025/12/7
-  Time: 10:37
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <html>
 <head>
@@ -33,7 +29,11 @@
             <div style="border:1px solid #ddd;padding:10px;margin-bottom:10px;">
                 <p><b>${item.title}</b></p>
                 <p>价格：¥${item.price}</p>
-                <p>${item.description}</p>
+                <p>
+                    <c:out value="${item.description}" escapeXml="false" />
+                </p>
+
+
 
                 <c:if test="${sessionScope.user != null && sessionScope.user.id == item.sellerId}">
                     <a href="${pageContext.request.contextPath}/item?action=delete&id=${item.id}" onclick="return confirm('确定删除吗？');">删除</a>
