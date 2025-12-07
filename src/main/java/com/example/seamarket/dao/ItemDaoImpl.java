@@ -80,4 +80,13 @@ public class ItemDaoImpl implements ItemDao {
             return dbExecutor.queryForList(conn, sql, itemMapper, "%" + keyword + "%");
         }
     }
+
+    @Override
+    public List<Item> findAll() throws SQLException {
+        String sql = "SELECT * FROM items";
+        try (Connection conn = ConnectionManager.getConnection()) {
+            return dbExecutor.queryForList(conn, sql, itemMapper);
+        }
+    }
+
 }

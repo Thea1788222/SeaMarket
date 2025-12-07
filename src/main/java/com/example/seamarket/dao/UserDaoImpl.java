@@ -72,4 +72,13 @@ public class UserDaoImpl implements UserDao {
             return dbExecutor.queryForObject(conn, sql, userMapper, username);
         }
     }
+
+    @Override
+    public User findByEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM users WHERE email=?";
+        try (Connection conn = ConnectionManager.getConnection()) {
+            return dbExecutor.queryForObject(conn, sql, userMapper, email);
+        }
+    }
+
 }

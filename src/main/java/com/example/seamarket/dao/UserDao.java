@@ -10,4 +10,6 @@ public interface UserDao {
     int deleteById(int id) throws SQLException;          // 根据 ID 删除用户
     User findById(int id) throws SQLException;           // 根据 ID 查询用户
     User findByUsername(String username) throws SQLException; // 根据用户名查询用户
+    User findByEmail(String email) throws SQLException;       //根据邮箱查询用户
+
 }

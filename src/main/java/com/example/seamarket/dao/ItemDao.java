@@ -11,4 +11,6 @@ public interface ItemDao {
     int deleteById(int id) throws SQLException;          // 根据 ID 删除商品
     Item findById(int id) throws SQLException;           // 根据 ID 查询商品
     List<Item> findByTitle(String keyword) throws SQLException; // 模糊匹配标题
+    List<Item> findAll() throws SQLException;
+
 }
