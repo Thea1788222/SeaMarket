@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Thea
-  Date: 2025/12/7
-  Time: 10:37
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.example.seamarket.model.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:if test="${empty sessionScope.user}">
-    <c:redirect url="../user/login.jsp"/>
+    <c:redirect url="${pageContext.request.contextPath}/user/login.jsp"/>
 </c:if>
 
 <html>
@@ -25,7 +18,7 @@
     <p style="color:red;">${error}</p>
 </c:if>
 
-<form action="../item" method="post">
+<form action="${pageContext.request.contextPath}/item" method="post">
     <input type="hidden" name="action" value="publish">
     <p>商品标题：<input type="text" name="title" required></p>
     <p>商品描述：<br>

@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Thea
-  Date: 2025/12/7
-  Time: 10:36
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -20,7 +14,7 @@
     <p style="color:red;">${error}</p>
 </c:if>
 
-<form action="../user" method="post">
+<form action="${pageContext.request.contextPath}/user" method="post">
     <input type="hidden" name="action" value="register">
     <p>用户名：<input type="text" name="username" required></p>
     <p>邮箱：<input type="email" name="email" required></p>

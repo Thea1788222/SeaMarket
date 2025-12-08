@@ -12,7 +12,7 @@
 
 <h2>商品列表</h2>
 
-<form action="../item" method="get">
+<form action="${pageContext.request.contextPath}/item" method="get">
     <input type="hidden" name="action" value="search">
     <input type="text" name="keyword" placeholder="搜索商品...">
     <button type="submit">搜索</button>
